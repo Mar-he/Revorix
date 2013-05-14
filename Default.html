@@ -1,0 +1,109 @@
+﻿<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="Styles/site.css">
+
+    <script type="text/javascript" src="Scripts/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/knockout-2.2.1.js"></script>
+
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>Revorix Jagdrechner
+                </h1>
+            </div>
+            <div class="clear">
+               
+            </div>
+        </div>
+<div>
+    <fieldset>
+        <table>
+    <thead>
+        <tr>
+            <th></th><th>Cr</th><th>Nrg</th><th>Rek</th>
+            <th>Erz</th><th>Org</th><th>Synth</th><th>Fe</th><th>Lm</th>
+            <th>Sm</th><th>Em</th><th>Rad</th><th>Es</th><th>Eg</th><th>Iso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Res vor der Jagd</td>
+            <td><input data-bind="value: CrBefore" /></td>
+            <td><input data-bind="value: NrgBefore" /></td>
+            <td><input data-bind="value: RekBefore" /></td>
+            <td><input data-bind="value: OreBefore" /></td>
+            <td><input data-bind="value: OrgBefore" /></td>
+            <td><input data-bind="value: SynBefore" /></td>
+            <td><input data-bind="value: FeBefore" /></td>
+            <td><input data-bind="value: LmBefore" /></td>
+            <td><input data-bind="value: SmBefore" /></td>
+            <td><input data-bind="value: EmBefore" /></td>
+            <td><input data-bind="value: RadBefore" /></td>
+            <td><input data-bind="value: EsBefore" /></td>
+            <td><input data-bind="value: EgBefore" /></td>
+            <td><input data-bind="value: IsoBefore" /></td>
+        </tr>
+        <tr>
+            <td>Res nach der Jagd</td>
+            <td><input data-bind="value:CrAfter" /></td>
+            <td><input data-bind="value: NrgAfter" /></td>
+            <td><input data-bind="value: RekAfter" /></td>
+            <td><input data-bind="value: OreAfter" /></td>
+            <td><input data-bind="value: OrgAfter" /></td>
+            <td><input data-bind="value: SynAfter" /></td>
+            <td><input data-bind="value: FeAfter" /></td>
+            <td><input data-bind="value: LmAfter" /></td>
+            <td><input data-bind="value: SmAfter" /></td>
+            <td><input data-bind="value: EmAfter" /></td>
+            <td><input data-bind="value: RadAfter" /></td>
+            <td><input data-bind="value: EsAfter" /></td>
+            <td><input data-bind="value: EgAfter" /></td>
+            <td><input data-bind="value: IsoAfter" /></td>
+        </tr>
+    </tbody>
+</table>
+    </fieldset>
+</div>
+<div>
+    <fieldset>
+        <legend>Verteilung</legend>
+        <table id="Results">
+    <thead><tr>
+        <th>Spieler</th><th>Schiffsanzahl</th><th>Cr</th><th>Nrg</th><th>Rek</th><th>Erz</th><th>Org</th><th>Syn</th><th>Fe</th><th>Lm</th><th>Sm</th><th>Em</th><th>Rad</th><th>Es</th><th>Eg</th><th>Iso</th><th>Anteil</th>
+    </tr></thead>
+    <tbody data-bind="foreach: slots">
+        <tr>
+            <td><input class="playername" data-bind="value: name" /></td>
+            <td><input data-bind="value: ShipCount, valueUpdate: 'afterkeydown'" /></td>
+            <td><span class="result" data-bind="text: Cr"></span></td>
+            <td><span class="result" data-bind="text: Nrg"></span></td>
+            <td><span class="result" data-bind="text: Rek"></span></td>
+            <td><span class="result" data-bind="text: Ore"></span></td>
+            <td><span class="result" data-bind="text: Org"></span></td>
+            <td><span class="result" data-bind="text: Syn"></span></td>
+            <td><span class="result" data-bind="text: Fe"></span></td>
+            <td><span class="result" data-bind="text: Lm"></span></td>
+            <td><span class="result" data-bind="text: Sm"></span></td>
+            <td><span class="result" data-bind="text: Em"></span></td>
+            <td><span class="result" data-bind="text: Rad"></span></td>
+            <td><span class="result" data-bind="text: Es"></span></td>
+            <td><span class="result" data-bind="text: Eg"></span></td>
+            <td><span class="result" data-bind="text: Iso"></span></td>
+            <td><span class="result" data-bind="text: Percentage(Portion())"></span></td>
+            <td><a href="#" data-bind="click: $root.removeSlot">Entfernen</a></td>
+            
+        </tr>    
+    </tbody>
+</table>
+    </fieldset>
+</div>
+<button data-bind="click: addSlot">Slot hinzufügen</button><br />
+    Total: <span id="totalsc" data-bind="text: totalShipCount()"></span>
+
+</div>
+
+<script src="Scripts/revorix.js"></script>
+</body>
